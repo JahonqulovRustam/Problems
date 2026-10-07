@@ -27,17 +27,10 @@ public class Main {
 			}
 		}
 		
-		if (comparator.areEqual(pixels1, pixels2, n)) {
-			System.out.println("Bu ikki kvadrat o'zaro teng!");
+		if (comparator.equals(pixels1, pixels2)) {
+			System.out.println("Ushbu kvadratlar teng!");
 		} else {
-			boolean valid1 = comparator.isValidSquare(pixels1, n);
-			boolean valid2 = comparator.isValidSquare(pixels2, n);
-			
-			if (!valid1 || !valid2) {
-				System.out.println("Kiritilgan shakllardan kamida bittasi kvadrat emas!");
-			} else {
-				System.out.println("Kvadratlar haqiqiy, lekin turlari bir xil emas!");
-			}
+			System.out.println("Bular teng bo'la olmaydi!");
 		}
 		
 		sc.close();

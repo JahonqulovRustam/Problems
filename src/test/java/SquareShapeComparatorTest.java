@@ -17,14 +17,14 @@ class SquareShapeComparatorTest {
 	void testSolid2x2() {
 		int[][] m1 = {
 				{1, 1},
-				{1, 1}
+				{1, 0}
 		};
 		int[][] m2 = {
 				{1, 1},
-				{1, 1}
+				{0, 1}
 		};
 		
-		assertTrue(comparator.areEqual(m1, m2, 2));
+		assertTrue(comparator.equals(m1, m2));
 	}
 	
 	@Test
@@ -39,10 +39,10 @@ class SquareShapeComparatorTest {
 				{1, 1, 1},
 				{1, 1, 1}
 		};
-		
-		assertTrue(comparator.areEqual(m1, m2, 3));
+
+		assertTrue(comparator.equals(m1, m2));
 	}
-	
+
 	@Test
 	void testHollow3x3() {
 		int[][] m1 = {
@@ -55,15 +55,15 @@ class SquareShapeComparatorTest {
 				{1, 0, 1},
 				{1, 1, 1}
 		};
-		
-		assertTrue(comparator.areEqual(m1, m2, 3));
+
+		assertTrue(comparator.equals(m1, m2));
 	}
-	
+
 	@Test
 	void testHollow4x4() {
 		int[][] m1 = {
 				{1, 1, 1, 1},
-				{1, 0, 0, 1},
+				{1, 1, 0, 1},
 				{1, 0, 0, 1},
 				{1, 1, 1, 1}
 		};
@@ -73,10 +73,10 @@ class SquareShapeComparatorTest {
 				{1, 0, 0, 1},
 				{1, 1, 1, 1}
 		};
-		
-		assertTrue(comparator.areEqual(m1, m2, 4));
+
+		assertFalse(comparator.equals(m1, m2));
 	}
-	
+
 	@Test
 	void testNotEqual() {
 		int[][] solid = {
@@ -89,10 +89,10 @@ class SquareShapeComparatorTest {
 				{1, 0, 1},
 				{1, 1, 1}
 		};
-		
-		assertFalse(comparator.areEqual(solid, hollow, 3));
+
+		assertFalse(comparator.equals(solid, hollow));
 	}
-	
+
 	@Test
 	void testInvalidSquares() {
 		int[][] validSolid = {
@@ -103,7 +103,7 @@ class SquareShapeComparatorTest {
 				{1, 0},
 				{0, 0}
 		};
-		
-		assertFalse(comparator.areEqual(validSolid, invalid, 2));
+
+		assertFalse(comparator.equals(validSolid, invalid));
 	}
 }
