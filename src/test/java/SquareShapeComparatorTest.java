@@ -6,7 +6,7 @@ class SquareShapeComparatorTest {
 	
 	private static final SquareShapeComparator comparator = new SquareShapeComparator();
 	@Test
-	void testEqualsDifferentSquares() {
+	void testSquaresAreEqualAfter270DegreeRotation() {
 		int[][] m1 = {
 				{1, 1},
 				{1, 0}
@@ -17,6 +17,63 @@ class SquareShapeComparatorTest {
 		};
 		
 		assertTrue(comparator.equals(m1, m2));
+	}
+	
+	@Test
+	void testSquaresAreEqualAfter180DegreeRotation() {
+		int[][] m1 = {
+				{1, 0, 0},
+				{1, 1, 0},
+				{0, 1, 1}
+		};
+		
+		int[][] m2 = {
+				{1, 1, 0},
+				{0, 1, 1},
+				{0, 0, 1}
+		};
+		
+		assertTrue(comparator.equals(m1, m2));
+	}
+	
+	@Test
+	void testSameSquares() {
+		int [][] m1 = {
+				{1, 1, 0, 1, 0},
+				{0, 0, 1, 1, 0},
+				{1, 1, 1, 1, 1},
+				{0, 1, 0, 1, 1},
+				{0, 0, 0, 0, 1}
+		};
+		
+		int [][] m2 = {
+				{1, 1, 0, 1, 0},
+				{0, 0, 1, 1, 0},
+				{1, 1, 1, 1, 1},
+				{0, 1, 0, 1, 1},
+				{0, 0, 0, 0, 1}
+		};
+		
+		assertTrue(comparator.equals(m1,m2));
+	}
+	
+	@Test
+	void testSameSquaresWithAllZeros() {
+		int[][] m1 = {
+				{0, 0, 0, 0},
+				{0, 0, 0, 0},
+				{0, 0, 0, 0},
+				{0, 0, 0, 0}
+		};
+		
+		int[][] m2 = {
+				{0, 0, 0, 0},
+				{0, 0, 0, 0},
+				{0, 0, 0, 0},
+				{0, 0, 0, 0}
+		};
+		
+		assertTrue(comparator.equals(m1,m2));
 	}
 	
 	@Test
