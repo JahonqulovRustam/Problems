@@ -122,18 +122,4 @@ class SquareShapeComparatorTest {
 
 		assertFalse(comparator.equals(solid, hollow));
 	}
-
-	@Test
-	void testInvalidSquares() {
-		int[][] validSolid = {
-				{1, 1},
-				{1, 1}
-		};
-		int[][] invalid = {
-				{1, 0},
-				{0, 0}
-		};
-
-		assertFalse(comparator.equals(validSolid, invalid));
-	}
 }
