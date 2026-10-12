@@ -16,7 +16,7 @@ public class SquareShapeComparator {
 		return false;
 	}
 	
-	public int[][] rotateMatrix(int[][] m) {
+	public static int[][] rotateMatrix(int[][] m) {
 		int length = m.length;
 		int[][] newMatrix = new int[length][length];
 		for (int i = 0; i < length; i++) {
