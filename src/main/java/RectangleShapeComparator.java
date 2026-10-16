@@ -9,9 +9,22 @@ public class RectangleShapeComparator {
 				return true;
 			}
 			
-			m = SquareShapeComparator.rotateMatrix(m);
+			m = rotateMatrix(m);
 		}
 		
 		return false;
+	}
+	
+	private int[][] rotateMatrix(int[][] m) {
+		int rows = m.length;
+		int cols = m[0].length;
+		int[][] rotatedMatrix = new int[cols][rows];
+		for (int i = 0; i < rows; i++) {
+			for (int j = 0; j < cols; j++) {
+				rotatedMatrix[j][rows - i - 1] = m[i][j];
+			}
+		}
+		
+		return rotatedMatrix;
 	}
 }
