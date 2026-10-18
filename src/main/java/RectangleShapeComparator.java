@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class RectangleShapeComparator {
 	
-	public boolean equals(int[][] m, int[][] n) {
+	public static boolean equals(int[][] m, int[][] n) {
 		
 		for (int i = 0; i < 4; i++) {
 			if (Arrays.deepEquals(m, n)) {
@@ -15,7 +15,7 @@ public class RectangleShapeComparator {
 		return false;
 	}
 	
-	private int[][] rotateMatrix(int[][] m) {
+	private static int[][] rotateMatrix(int[][] m) {
 		int rows = m.length;
 		int cols = m[0].length;
 		int[][] rotatedMatrix = new int[cols][rows];
