@@ -3,55 +3,88 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class ShapeMatcherTest {
 	@Test
-	void test1() {
-		int[][] m = {
+	void shapeFitsAfter90DegreeRotation() {
+		int[][] shape1 = {
 				{0, 0, 0, 0},
 				{0, 1, 1, 0},
 				{0, 1, 0, 0},
 				{0, 0, 0, 0}
 		};
 		
-		int[][] n = {
+		int[][] shape2 = {
 				{0, 0, 0, 0, 0},
 				{0, 0, 1, 1, 0},
 				{0, 0, 0, 1, 0},
 				{0, 0, 0, 0, 0}
 		};
 		
-		assertTrue(ShapeMatcher.isShapeInside(m,n));
+		assertTrue(ShapeMatcher.isShapeInside(shape1,shape2));
 	}
 	
 	@Test
-	void test2() {
-		int[][] m = {
+	void shapeDoesNotFitWhenLargerThanContainer() {
+		int[][] shape1 = {
 				{0, 0, 0, 0},
 				{1, 1, 1, 0},
 				{1, 1, 1, 0},
 				{0, 0, 0, 0}
 		};
 		
-		int[][] n = {
+		int[][] shape2 = {
 				{0, 0, 0, 0, 0},
 				{0, 0, 0, 1, 0},
 				{0, 0, 0, 1, 0},
 				{0, 0, 0, 0, 0}
 		};
 		
-		assertFalse(ShapeMatcher.isShapeInside(m,n));
+		assertFalse(ShapeMatcher.isShapeInside(shape1,shape2));
 	}
 	
 	@Test
-	void test3() {
-		int[][] x = {
+	void horizontalLineFitsVerticalLineAfterRotation() {
+		int[][] shape1 = {
 				{1, 1, 1}
 		};
 		
-		int[][] y = {
+		int[][] shape2 = {
 				{1},
 				{1},
 				{1}
 		};
 		
-		assertTrue(ShapeMatcher.isShapeInside(x, y));
+		assertTrue(ShapeMatcher.isShapeInside(shape1, shape2));
+	}
+	
+	@Test
+	void mirroredShapeDoesNotFitBecauseOnlyRotationIsAllowed() {
+		int[][] shape1 = {
+				{0, 1, 1},
+				{1, 1, 0}
+		};
+		
+		int[][] shape2 = {
+				{1, 1, 0},
+				{0, 1, 1}
+		};
+		
+		assertFalse(ShapeMatcher.isShapeInside(shape1, shape2));
+	}
+	
+	@Test
+	void shape1FitsAfter270DegreeRotation() {
+		int[][] shape1 = {
+				{1, 1, 1},
+				{0, 1, 0}
+		};
+		
+		int[][] shape2 = {
+				{0, 0, 0, 0, 0},
+				{0, 0, 1, 0, 0},
+				{0, 0, 1, 1, 0},
+				{0, 0, 1, 0, 0},
+				{0, 0, 0, 0, 0}
+		};
+		
+		assertTrue(ShapeMatcher.isShapeInside(shape1, shape2));
 	}
 }

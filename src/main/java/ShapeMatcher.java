@@ -93,27 +93,4 @@ public class ShapeMatcher {
 		}
 		return true;
 	}
-	
-	public static void main(String[] args) {
-		int[][] m = {
-				{0, 0, 0, 0},
-				{0, 1, 1, 0},
-				{0, 1, 0, 0},
-				{0, 0, 0, 0}
-		};
-		
-		int[][] n = {
-				{0, 0, 0, 0, 0},
-				{0, 0, 1, 1, 0},
-				{0, 0, 0, 1, 0},
-				{0, 0, 0, 0, 0}
-		};
-		
-		System.out.println(isShapeInside(m, n));
-		
-		int[][] x = {{1, 1, 1}};
-		int[][] y = {{1}, {1}, {1}};
-		
-		System.out.println(isShapeInside(x, y));
-	}
 }
