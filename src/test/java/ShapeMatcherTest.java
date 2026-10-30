@@ -87,4 +87,22 @@ public class ShapeMatcherTest {
 		
 		assertTrue(ShapeMatcher.isShapeInside(shape1, shape2));
 	}
+	
+	@Test
+	void shapeFitsAfter90DegreeRotationDespiteAdditional1s() {
+		int[][] shape1 = {
+				{1, 0, 1},
+				{0, 0, 1}
+		};
+		
+		int[][] shape2 = {
+				{0, 1, 1, 1, 1},
+				{0, 0, 1, 1, 0},
+				{1, 0, 0, 1, 1},
+				{1, 1, 1, 1, 1},
+				{0, 0, 1, 0, 1}
+		};
+		
+		assertTrue(ShapeMatcher.isShapeInside(shape1, shape2));
+	}
 }
