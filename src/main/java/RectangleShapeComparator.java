@@ -15,7 +15,7 @@ public class RectangleShapeComparator {
 		return false;
 	}
 	
-	private static int[][] rotateMatrix(int[][] m) {
+	protected static int[][] rotateMatrix(int[][] m) {
 		int rows = m.length;
 		int cols = m[0].length;
 		int[][] rotatedMatrix = new int[cols][rows];
